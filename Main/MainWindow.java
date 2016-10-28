@@ -28,6 +28,8 @@ public class MainWindow {
      * this method should be invoked from the
      * event-dispatching thread.
      */
+	//Gary 10.27.2016
+	//Add following four class objects - must also add imports at the top
         static Student student;
         static Instructor instructor;
         static Evaluation evaluation;
@@ -170,13 +172,17 @@ public class MainWindow {
 		        datePanel.setVisible(false);
 		        datetext.setText(date);
 		        datetext.setVisible(true);
+			//Gary 10.27.16
+			//****** This code following is where the text from the screen is pulled
                         student = new Student();
                         student.setStudentName(studenttext.getText());
                         instructor = new Instructor();
                         instructor.setInstructorName(instructortext.getText());
-                        instructor.setIDNumber("IDNumberVariablegoeshere");
+                        instructor.setIDNumber("IDNumberVariablegoeshere"); //replace Instructor ID with var when its available on scrn
                         evaluation = new Evaluation();
                         evaluation.setHasPassed(passbutton.isSelected());
+			//Gary 10.27.16
+			//The next two lines we send the information to the JXML class to produce the XML file
                         JXML xml = new JXML(student, instructor, evaluation);
                         xml.CreateXML();
 
